@@ -20,10 +20,22 @@ namespace RomanCalc
             System.Console.WriteLine("8) Realizar secuencia fibonacci.");
             System.Console.WriteLine("9) Realizar Sumario.");
             System.Console.WriteLine("0) Salir.");
-           
+
+        }
 
 
-
+        public static int ReadOption()
+        {
+                string option = System.Console.ReadLine();
+                try
+                {
+                    int result = System.Int32.Parse(option);      // ===>   int result = int.Parse(option);
+                    return result;
+                }
+                catch (System.Exception e)
+                {
+                    return -1;
+                }
 
 
 

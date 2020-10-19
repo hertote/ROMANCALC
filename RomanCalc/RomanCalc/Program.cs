@@ -8,11 +8,21 @@ namespace RomanCalc
         {
             while (true) //es un bucle continuo para que la app no cierre
             {
-                System.Console.Clear();
-                UserInterface.PrintMainMenu();
-                string option = System.Console.ReadLine();
-                System.Console.WriteLine("La opción introducida es " + option);
                 
+                UserInterface.PrintMainMenu();
+                int option = UserInterface.ReadOption();
+                if (option == 0);
+                {
+                    break;
+                }
+                if (option == -1)
+                {
+                    System.Console.Clear();
+                    System.Console.WriteLine("Opción no válida");
+                }
+
+
+
             }
         }
         static void Main(string[] args)
