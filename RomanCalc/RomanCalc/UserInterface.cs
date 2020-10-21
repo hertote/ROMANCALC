@@ -6,6 +6,7 @@ namespace RomanCalc
 {
     class UserInterface
     {
+
         public static void PrintMainMenu()
         {
             System.Console.WriteLine("Calculadora Román");
@@ -23,23 +24,57 @@ namespace RomanCalc
 
         }
 
-
-        public static int ReadOption()
+        public static void PrintSubtractionMenu()
         {
-                string option = System.Console.ReadLine();
-                try
-                {
-                    int result = System.Int32.Parse(option);      // ===>   int result = int.Parse(option);
-                    return result;
-                }
-                catch (System.Exception e)
-                {
-                    return -1;
-                }
-
-
-
 
         }
+        public static void PrintSubtractionSubmenu()
+        {
+            System.Console.WriteLine(" 0) Volver al menú princupal");
+            System.Console.WriteLine(" 1) Seguir Restando");
+            System.Console.WriteLine(" 2) Reiniciar la Resta");
+        }
+        public static void PrintAdditionMenu()
+        {
+
+        }
+
+
+        public static void PrintAdditionSubmenu()
+        {
+            System.Console.WriteLine(" 0) Volver al menú princupal");
+            System.Console.WriteLine(" 1) Seguir sumando");
+            System.Console.WriteLine(" 2) Reiniciar la suma");
+        }
+
+
+        public static int ReadMenuOption()
+        {
+            string option = System.Console.ReadLine();
+            try
+            {
+                int result = System.Int32.Parse(option);      // ===>   int result = int.Parse(option);
+                return result;
+            }
+            catch (System.Exception e)
+            {
+                return -1;
+            }
+        }
+
+        public static int ReadMenuOption(int MinOptionValue, int MaxOptionValue)
+        {
+            while (true)
+            {
+                int option = ReadMenuOption();
+                if (option >= MinOptionValue && option <= MaxOptionValue)
+                    return option;
+                else
+                    System.Console.WriteLine("Opcion no valida, introduce una opcion entre" + MinOptionValue + " y " + MaxOptionValue);
+
+            }
+        }
+
+        
     }
 }
