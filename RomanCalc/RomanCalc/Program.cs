@@ -6,7 +6,7 @@ namespace RomanCalc
     class Program
     {
 
-        public static void LaunchSubadditionMenu(int Accumuled)
+        public static int LaunchSubadditionMenu(int Accumuled)
         {
             while (true)
             {
@@ -15,10 +15,53 @@ namespace RomanCalc
                 Accumuled += number;
                 System.Console.WriteLine("El numero acumulado es " + Accumuled);
                 UserInterface.PrintAdditionSubmenu();
+                switch (UserInterface.ReadMenuOption(0, 2))
+                {
+                    case 0:
+
+                        System.Console.Clear();
+                        return 0;
+
+                    case 2:
+                        System.Console.Clear();
+                        return 2;
+                }
             }
 
+        }
+        public static void MultiplicationMenu()
+        {
+            while (true)
+            {
+                UserInterface.PrintMultiplicationMenu();
+                int number1 = ControllersUtils.ReadIntegerInput("Dime el primero:");
+                int number2 = ControllersUtils.ReadIntegerInput("Dime el segundo:");
+                int result = number1 * number2;
+                System.Console.WriteLine("La multiplicación es. " + result);
+                UserInterface.PrintMultiplicationMenu();
+                int option = UserInterface.ReadMenuOption(0, 2);
+                switch (option)
+                {
+                    case 0:
+                        System.Console.Clear();
+                        return;
+                    case 1:
+                        int suboption = LaunchSubadditionMenu(result);
+                        if (suboption == 0)
+                            return;
+                        break;
+                        LaunchSubadditionMenu(result);
+                        break;
+                    case 2:
+                        System.Console.Clear();
+                        break;
+
+                    default:
+                        break;
 
 
+                }
+            }
         }
 
         public static void SubtractionMenu()
@@ -29,7 +72,7 @@ namespace RomanCalc
                 int number1 = ControllersUtils.ReadIntegerInput("Dime el primero:");
                 int number2 = ControllersUtils.ReadIntegerInput("Dmie el segundo:");
                 int result = number1 - number2;
-                System.Console.WriteLine("La resta es." + result);
+                System.Console.WriteLine("La resta es. " + result);
                 UserInterface.PrintSubtractionSubmenu();
                 int option = UserInterface.ReadMenuOption(0, 2);
                 switch (option)
@@ -37,8 +80,13 @@ namespace RomanCalc
                     case 0:
                         System.Console.Clear();
                         return;
+
                     case 1:
-                        LaunchSubadditionMenu(result);
+                        int suboption = LaunchSubadditionMenu(result);
+                        if (suboption == 0)
+                           return;
+                        break;
+                           LaunchSubadditionMenu(result);
                         break;
                     case 2:
                         System.Console.Clear();
@@ -51,7 +99,7 @@ namespace RomanCalc
             }   
         }
 
-        //Addition finction controller
+        //Addition function controller
         //this function manages the addition menu loop, and their options
         public static void LaunchAdditionMenu()
         {

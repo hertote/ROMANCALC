@@ -23,7 +23,26 @@ namespace RomanCalc
             System.Console.WriteLine("0) Salir.");
 
         }
+        public static void PrintDivisionMenu()
+        {
 
+        }
+        public static void PrintDivisionSubmenu()
+        {
+            System.Console.WriteLine(" 0) Volver al menú principal");
+            System.Console.WriteLine(" 1) Seguir Dividiendo");
+            System.Console.WriteLine(" 2) Reiniciar la División");
+        }
+        public static void PrintMultiplicationMenu()
+        {
+
+        }
+        public static void PrintMultiplicationSubmenu()
+        {
+            System.Console.WriteLine(" 0) Volver al menú principal");
+            System.Console.WriteLine(" 1) Seguir Multiplicando");
+            System.Console.WriteLine(" 2) Reiniciar la Multiplicación");
+        }
         public static void PrintSubtractionMenu()
         {
 
@@ -38,8 +57,6 @@ namespace RomanCalc
         {
 
         }
-
-
         public static void PrintAdditionSubmenu()
         {
             System.Console.WriteLine(" 0) Volver al menú princupal");
